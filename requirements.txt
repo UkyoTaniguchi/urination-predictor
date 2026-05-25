@@ -1,0 +1,27 @@
+# ============================
+# 排尿予測モデル - 必要ライブラリ
+# ============================
+
+# データ処理・分析
+pandas==2.1.4
+numpy==1.26.4
+
+# 機械学習
+scikit-learn==1.4.2
+xgboost==2.0.3
+imbalanced-learn==0.12.3   # SMOTE（クラス不均衡対策）
+
+# 特徴量選択・説明
+shap==0.45.0               # SHAP値（モデルの解釈）
+
+# 可視化
+matplotlib==3.8.4
+seaborn==0.13.2
+
+# Jupyter Notebook
+jupyter==1.0.0
+notebook==7.2.1
+ipykernel==6.29.4
+
+# モデル保存
+joblib==1.4.2
