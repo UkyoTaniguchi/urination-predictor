@@ -1,0 +1,84 @@
+/* ===== リセット & ベース ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: #f0f4f8;
+  color: #2d3748;
+  min-height: 100vh;
+}
+
+/* ===== レイアウト ===== */
+.app-container { max-width: 720px; margin: 0 auto; padding: 24px 16px 60px; }
+.app-header { text-align: center; margin-bottom: 32px; }
+.app-header h1 { font-size: 1.8rem; color: #2b6cb0; margin-bottom: 6px; }
+.app-header p  { color: #718096; font-size: 0.95rem; }
+
+/* ===== カード ===== */
+.card { background: #fff; border-radius: 16px; padding: 28px 28px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 24px; }
+.card-title { font-size: 1.05rem; font-weight: 700; color: #2b6cb0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #bee3f8; display: flex; align-items: center; gap: 8px; }
+
+/* ===== フォーム要素 ===== */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid.single { grid-template-columns: 1fr; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.82rem; font-weight: 600; color: #4a5568; }
+.form-group .unit { font-size: 0.78rem; color: #a0aec0; margin-left: 4px; }
+
+input, select { padding: 10px 14px; border: 1.5px solid #cbd5e0; border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: #fff; color: #2d3748; width: 100%; }
+input:focus, select:focus { border-color: #63b3ed; box-shadow: 0 0 0 3px rgba(99,179,237,0.25); }
+
+.bmi-display { padding: 10px 14px; border: 1.5px solid #bee3f8; border-radius: 8px; background: #ebf8ff; font-size: 0.95rem; color: #2b6cb0; font-weight: 600; }
+
+/* ===== 飲み物セレクター ===== */
+.drink-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 4px; }
+.drink-btn { padding: 10px 4px 8px; border: 2px solid #e2e8f0; border-radius: 12px; background: #fff; cursor: pointer; text-align: center; font-size: 0.8rem; color: #4a5568; transition: all 0.15s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.drink-btn:hover  { border-color: #63b3ed; background: #ebf8ff; }
+.drink-btn.active { border-color: #3182ce; background: #ebf8ff; color: #2b6cb0; font-weight: 700; }
+.drink-btn .emoji { font-size: 1.5rem; }
+
+/* ===== チェックボックス ===== */
+.checkbox-group { display: flex; gap: 24px; }
+.checkbox-item  { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.92rem; }
+.checkbox-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: #3182ce; }
+
+/* ===== ボタン ===== */
+.btn-submit { width: 100%; padding: 14px; background: linear-gradient(135deg, #3182ce, #2b6cb0); color: #fff; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 8px; }
+.btn-submit:hover    { opacity: 0.92; }
+.btn-submit:active   { transform: scale(0.99); }
+.btn-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-secondary { padding: 10px 24px; background: #edf2f7; color: #4a5568; border: none; border-radius: 10px; font-size: 0.92rem; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+.btn-secondary:hover { background: #e2e8f0; }
+
+/* ===== 予測結果 ===== */
+.result-card { background: linear-gradient(135deg, #ebf8ff, #e6fffa); border: 2px solid #90cdf4; border-radius: 16px; padding: 28px; margin-bottom: 24px; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.result-label { text-align: center; margin-bottom: 20px; }
+.result-label .class-badge { display: inline-block; background: #2b6cb0; color: #fff; font-size: 1.4rem; font-weight: 700; padding: 10px 28px; border-radius: 50px; margin-bottom: 10px; }
+.result-label .recommendation { font-size: 1rem; color: #2d6a4f; font-weight: 600; }
+.prob-bars { display: flex; flex-direction: column; gap: 10px; }
+.prob-row  { display: flex; align-items: center; gap: 10px; }
+.prob-row .label { width: 90px; font-size: 0.82rem; color: #4a5568; text-align: right; flex-shrink: 0; }
+.prob-bar-wrap { flex: 1; background: #e2e8f0; border-radius: 999px; height: 18px; overflow: hidden; }
+.prob-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #3182ce, #63b3ed); transition: width 0.8s ease; }
+.prob-row .pct { width: 44px; font-size: 0.82rem; font-weight: 700; color: #2b6cb0; }
+
+/* ===== データ記録 ===== */
+.record-section { border-top: 1px dashed #bee3f8; margin-top: 20px; padding-top: 20px; }
+.record-hint { font-size: 0.85rem; color: #718096; margin-bottom: 14px; }
+
+/* ===== アラート ===== */
+.alert { padding: 12px 16px; border-radius: 10px; font-size: 0.9rem; margin-bottom: 16px; }
+.alert-error   { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+.alert-success { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+
+/* ===== ローディング ===== */
+.spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 8px; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 540px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .drink-grid { grid-template-columns: repeat(3, 1fr); }
+  .card { padding: 20px 16px; }
+}
